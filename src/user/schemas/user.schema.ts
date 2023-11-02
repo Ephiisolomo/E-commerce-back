@@ -16,6 +16,8 @@ export class User {
   @Prop()
   password: string;
 
+  @Prop()
+  confirmed_password: string;
 
   @Prop({default: [Role.User]})
   roles: Role[] ;
