@@ -14,8 +14,6 @@ export class ProductController {
 
   @Get('/')
   async getProducts() {
-    console.log('inside the desired function');
-      console.log('the 2nd one')
       const allProducts = await this.productService.getAllProducts();
       return allProducts;
       }

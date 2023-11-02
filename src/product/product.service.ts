@@ -13,7 +13,6 @@ export class ProductService {
   async getFilteredProducts(filterProductDTO: FilterProductDTO): Promise<Product[]> {
     const { search, category } = filterProductDTO;
     let products = await this.getAllProducts();
-    console.log('inside the desired function 2');
 
     if (search) {
       products = products.filter(product => 
@@ -30,7 +29,6 @@ export class ProductService {
 
   async getAllProducts(): Promise<Product[]> {
     try {
-      console.log('here');
       var products = await this.productModel.find().exec();
     } catch (error) {
       console.log(error);
