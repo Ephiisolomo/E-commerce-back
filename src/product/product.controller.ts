@@ -13,16 +13,16 @@ export class ProductController {
   constructor(private productService: ProductService) { }
 
   @Get('/')
-  async getProducts(@Query() filterProductDTO: FilterProductDTO, @Res() res) {
-    console.log('inside the desired function');
-
+  async getProducts() {
+      const allProducts = await this.productService.getAllProducts();
+      return allProducts;
+      }
+  
+  @Get('/filter')
+  async getFilteredProducts(@Query() filterProductDTO: FilterProductDTO, @Res() res){
     if (Object.keys(filterProductDTO).length) {
       const filteredProducts = await this.productService.getFilteredProducts(filterProductDTO);
       return filteredProducts;
-    } else {
-      console.log('the 2nd one')
-      const allProducts = await this.productService.getAllProducts();
-      return allProducts;
     }
   }
 
