@@ -13,6 +13,7 @@ export class UserService {
     const newUser = await this.userModel.create(createUserDTO);
     console.log(newUser);
     newUser.password = await bcrypt.hash(newUser.password, 10);
+    newUser.confirmed_password = await bcrypt.hash(newUser.confirmed_password,10);
    
     return newUser.save();
   }

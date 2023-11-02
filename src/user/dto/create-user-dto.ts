@@ -11,6 +11,9 @@ export class CreateUserDTO {
     @ApiProperty({ example: 'PWD', description: 'The password of the user' })
     password: string;
 
+    @ApiProperty({ example: 'PWD', description: 'The password of the user' })
+    confirmed_password: string;
+
     @ApiProperty({ example: 'user', description: 'The role of the user' })
     roles: string[];
   }
